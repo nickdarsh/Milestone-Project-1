@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Concepts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="v0_9_and_1_0.html">HTTP 0.9 & 1.0</a></li>
+                <li><a href="v1_1_and_2.html">HTTP 1.1 & 2</a></li>
+                <li><a href="key_concepts.html">Key Concepts</a></li>
+                <li><a href="references.html">References</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Key Concepts in the History of HTTP</h1>
+        
+        <section>
+            <dl>
+                <dt><strong>Hypertext Transfer Protocol (HTTP)</strong></dt>
+                <dd>The foundation of data communication for the World Wide Web, serving as the invisible handshake that connects web clients and servers.</dd>
+
+                <dt><strong>Hypertext</strong></dt>
+                <dd>Text displayed on a computer display with references (hyperlinks) to other text that the reader can immediately access. It is the core idea that Berners-Lee connected to networking protocols.</dd>
+
+                <dt><strong>TCP & DNS</strong></dt>
+                <dd>Berners-Lee had to connect the hypertext idea to **TCP (Transmission Control Protocol)** and **DNS (Domain Name System)** ideas to create the World Wide Web. TCP manages the reliable connection, and DNS translates domain names into IP addresses.</dd>
+
+                <dt><strong>Metadata</strong></dt>
+                <dd>Data about data. In HTTP, this is transferred via headers in requests and responses, introduced in version 1.0.</dd>
+                
+                <dt><strong>Persistent Connections</strong></dt>
+                <dd>An HTTP 1.1 feature that keeps a single TCP connection open to send and receive multiple HTTP requests and responses, improving efficiency and reducing latency.</dd>
+                
+                <dt><strong>Multiplexing</strong></dt>
+                <dd>The key innovation in HTTP/2, allowing multiple requests to be sent and responses to be received concurrently over a single TCP connection, overcoming the "Head-of-Line Blocking" issue of HTTP 1.1.</dd>
+            </dl>
+        </section>
+
+
+    <footer>
+        <p>This is a class project for IT 3203. <a href="https://ksuweb.github.io/IT3203/" target="_blank">Class Website</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP 1.1 & 2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="v0_9_and_1_0.html">HTTP 0.9 & 1.0</a></li>
+                <li><a href="v1_1_and_2.html">HTTP 1.1 & 2</a></li>
+                <li><a href="key_concepts.html">Key Concepts</a></li>
+                <li><a href="references.html">References</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>HTTP 1.1 and 2.0: The Protocols of Efficiency and Speed</h1>
+        
+        <section>
+            <h2>The Internet Boom and HTTP 1.1 (1997)</h2>
+            <p>
+                The mid to late 1990s witnessed an explosive growth of the commercial internet, also known as the dot-com boom, a period of innovation and investment. The release of HTTP 1.1 in 1997 marked a significant milestone, focusing on reliability and efficiency to support the world of e-commerce and dynamic web applications.
+            </p>
+            <p>
+                The most important concept introduced in 1.1 was persistent connections, which allowed multiple requests and responses through a single TCP connection. This greatly improved performance and reduced latency.
+            </p>
+        </section>
+
+        <section>
+            <h2>The Modern Web and HTTP/2 (2015)</h2>
+            <p>
+                By the late 2000s, the web had evolved into a complex ecosystem with high-definition media and data-intensive services. The limitations of HTTP 1.1, especially the issue where a single slow request could hold up subsequent requests (**Head-of-Line Blocking**), became apparent.
+            </p>
+            <p>
+                This bottleneck inspired the development of a new version, heavily influenced by Google’s SPDY protocol. In 2015, the IETF published HTTP/2, which included a transformative feature:
+            </p>
+            <ul>
+                <li>Multiplexing: This allowed for multiple requests and responses to be sent in parallel over a single connection, fundamentally solving the latency and performance issues of its predecessor.</li>
+            </ul>
+            <p>HTTP/2 laid the groundwork for the modern, fast, and data-rich internet experience.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>This is a class project for IT 3203. <a href="https://ksuweb.github.io/IT3203/" target="_blank">Class Website</a></p>
+    </footer>
+</body>
+</html>

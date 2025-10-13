@@ -1,0 +1,100 @@
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the footer sticks to the bottom */
+}
+
+/* Header and Navigation (Flexbox Layout) */
+header {
+    background: #2c3e50; /* Dark Blue */
+    color: white;
+    padding: 1rem 0;
+    border-bottom: 5px solid #3498db; /* Blue accent */
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* Activate Flexbox on the UL */
+    justify-content: space-around; /* Distribute space evenly between links */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #34495e; /* Slightly lighter dark blue on hover */
+    border-radius: 4px;
+}
+
+/* Main Content Layout */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    flex-grow: 1; /* Allows the content area to take up available space */
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+
+ul, ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Footer (Class Project Note) */
+footer {
+    background: #ecf0f1; /* Light Gray */
+    color: #7f8c8d; /* Gray text */
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto; /* Pushes the footer to the bottom */
+    border-top: 1px solid #bdc3c7;
+    font-size: 0.85rem;
+}
+
+footer a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
