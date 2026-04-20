@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP History Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Table-based layout inspired by your Form Demo.txt */
+        .form-example {
+            display: table;
+            width: 100%;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .question-row {
+            display: table-row;
+        }
+        .question-cell {
+            display: table-cell;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .options-group {
+            margin-top: 10px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 250px;
+        }
+        
+        /* Scoring Colors */
+        .pass-text { color: #27ae60; font-weight: bold; }
+        .fail-text { color: #e74c3c; font-weight: bold; }
+        #results-area { 
+            display: none; 
+            margin-top: 20px; 
+            padding: 20px; 
+            border: 2px solid #2c3e50; 
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="v0_9_and_1_0.html">HTTP 0.9 & 1.0</a></li>
+                <li><a href="v1_1_and_2.html">HTTP 1.1 & 2</a></li>
+                <li><a href="key_concepts.html">Key Concepts</a></li>
+                <li><a href="references.html">References</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Self-Assessment Quiz</h1>
+        <p>Complete the form below using the knowledge gained from the site content.</p>
+
+        <form id="quizForm" method="get" class="form-example">
+            
+            <div class="question-row">
+                <div class="question-cell">
+                    <label for="q1"><strong>1. Who created HTTP at CERN in 1989?</strong></label><br>
+                    <input type="text" id="q1" name="q1" required>
+                </div>
+            </div>
+
+            <div class="question-row">
+                <div class="question-cell">
+                    <p><strong>2. Which version introduced persistent connections?</strong></p>
+                    <input type="radio" id="r1" name="q2" value="1.0"> <label for="r1">HTTP 1.0</label><br>
+                    <input type="radio" id="r2" name="q2" value="1.1"> <label for="r2">HTTP 1.1</label><br>
+                    <input type="radio" id="r3" name="q2" value="2.0"> <label for="r3">HTTP 2.0</label>
+                </div>
+            </div>
+
+            <div class="question-row">
+                <div class="question-cell">
+                    <p><strong>3. HTTP/2 was heavily influenced by which Google protocol?</strong></p>
+                    <input type="radio" id="r4" name="q3" value="TCP"> <label for="r4">TCP</label><br>
+                    <input type="radio" id="r5" name="q3" value="SPDY"> <label for="r5">SPDY</label><br>
+                    <input type="radio" id="r6" name="q3" value="DNS"> <label for="r6">DNS</label>
+                </div>
+            </div>
+
+            <div class="question-row">
+                <div class="question-cell">
+                    <p><strong>4. Which version allowed metadata transfer via headers?</strong></p>
+                    <input type="radio" id="r7" name="q4" value="0.9"> <label for="r7">HTTP 0.9</label><br>
+                    <input type="radio" id="r8" name="q4" value="1.0"> <label for="r8">HTTP 1.0</label>
+                </div>
+            </div>
+
+            <div class="question-row">
+                <div class="question-cell">
+                    <p><strong>5. Which features are specific to HTTP/2? (Select all that apply)</strong></p>
+                    <input type="checkbox" id="c1" name="q5" value="mux"> <label for="c1">Multiplexing</label><br>
+                    <input type="checkbox" id="c2" name="q5" value="bin"> <label for="c2">Binary Framing</label><br>
+                    <input type="checkbox" id="c3" name="q5" value="get"> <label for="c3">Only GET methods</label>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <input type="button" value="Submit Quiz" onclick="processQuiz()">
+                <input type="button" value="Reset Quiz" onclick="confirmReset()">
+            </div>
+        </form>
+
+        <div id="results-area">
+            <h2 id="overall-status"></h2>
+            <p id="score-display"></p>
+            <div id="feedback-list"></div>
+        </div>
+    </div>
+
+    <script>
+        function processQuiz() {
+            const form = document.getElementById('quizForm');
+            
+            // Validation: Use Alert Box logic if name is missing
+            if (form.q1.value === "") {
+                alert("Please answer the fill-in-the-blank question before submitting!");
+                return;
+            }
+
+            let score = 0;
+            const feedback = [];
+            
+            // Q1 Check
+            const a1 = form.q1.value.toLowerCase();
+            if (a1.includes("tim berners-lee")) {
+                score++;
+                feedback.push({n: 1, res: "Correct", ans: "Tim Berners-Lee", color: "pass-text"});
+            } else {
+                feedback.push({n: 1, res: "Incorrect", ans: "Tim Berners-Lee", color: "fail-text"});
+            }
+
+            // Q2 Check
+            if (form.q2.value === "1.1") {
+                score++;
+                feedback.push({n: 2, res: "Correct", ans: "HTTP 1.1", color: "pass-text"});
+            } else {
+                feedback.push({n: 2, res: "Incorrect", ans: "HTTP 1.1", color: "fail-text"});
+            }
+
+            // Q3 Check
+            if (form.q3.value === "SPDY") {
+                score++;
+                feedback.push({n: 3, res: "Correct", ans: "SPDY", color: "pass-text"});
+            } else {
+                feedback.push({n: 3, res: "Incorrect", ans: "SPDY", color: "fail-text"});
+            }
+
+            // Q4 Check
+            if (form.q4.value === "1.0") {
+                score++;
+                feedback.push({n: 4, res: "Correct", ans: "HTTP 1.0", color: "pass-text"});
+            } else {
+                feedback.push({n: 4, res: "Incorrect", ans: "HTTP 1.0", color: "fail-text"});
+            }
+
+            // Q5 Check (Checkboxes)
+            const q5Nodes = form.querySelectorAll('input[name="q5"]:checked');
+            const q5Values = Array.from(q5Nodes).map(cb => cb.value);
+            const q5Correct = q5Values.length === 2 && q5Values.includes("mux") && q5Values.includes("bin");
+            if (q5Correct) {
+                score++;
+                feedback.push({n: 5, res: "Correct", ans: "Multiplexing and Binary Framing", color: "pass-text"});
+            } else {
+                feedback.push({n: 5, res: "Incorrect", ans: "Multiplexing and Binary Framing", color: "fail-text"});
+            }
+
+            displayResults(score, feedback);
+        }
+
+        function displayResults(score, feedback) {
+            const area = document.getElementById('results-area');
+            const status = document.getElementById('overall-status');
+            const list = document.getElementById('feedback-list');
+            
+            area.style.display = "block";
+            list.innerHTML = "";
+
+            const passed = score >= 4;
+            status.innerHTML = passed ? "Result: PASS" : "Result: FAIL";
+            status.className = passed ? "pass-text" : "fail-text";
+            document.getElementById('score-display').innerText = "Total Score: " + score + "/5";
+
+            feedback.forEach(item => {
+                const p = document.createElement('p');
+                p.innerHTML = `<strong>Question ${item.n}:</strong> <span class="${item.color}">${item.res}</span>. Correct Answer: ${item.ans}`;
+                list.appendChild(p);
+            });
+            
+            area.scrollIntoView();
+        }
+
+        // Reset using JavaScript Confirm Box logic
+        function confirmReset() {
+            if (confirm("Are you sure you want to reset the quiz? All progress will be lost.")) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('results-area').style.display = "none";
+                alert("Quiz has been reset.");
+            }
+        }
+    </script>
+</body>
+</html>
