@@ -1,3 +1,4 @@
+/* Base Styles (Desktop/Tablet) */
 {
     box-sizing: border-box;
     margin: 0;
@@ -11,21 +12,22 @@ body {
     color: #333;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensures the footer sticks to the bottom */
+    min-height: 100vh;
 }
 
-/* Header and Navigation (Flexbox Layout) */
 header {
-    background: #2c3e50; /* Dark Blue */
+    background: #2c3e50;
     color: white;
     padding: 1rem 0;
-    border-bottom: 5px solid #3498db; /* Blue accent */
+    border-bottom: 5px solid #3498db;
 }
 
+/* Responsive Menu */
 nav ul {
     list-style: none;
-    display: flex; /* Activate Flexbox on the UL */
-    justify-content: space-around; /* Distribute space evenly between links */
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
@@ -39,62 +41,77 @@ nav ul li a {
     transition: background-color 0.3s;
 }
 
-nav ul li a:hover {
-    background-color: #34495e; /* Slightly lighter dark blue on hover */
-    border-radius: 4px;
-}
-
-/* Main Content Layout */
+/* Main Content Container */
 .container {
     max-width: 1200px;
+    width: 90%; /* Ensure padding on mobile */
     margin: 2rem auto;
-    padding: 0 1rem;
-    flex-grow: 1; /* Allows the content area to take up available space */
+    flex-grow: 1;
 }
 
-h1, h2, h3 {
-    color: #2c3e50;
-    margin-bottom: 1rem;
+/* Responsive Images and Tables */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
-p {
-    margin-bottom: 1rem;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow-x: auto; /* Handles wide tables on narrow screens */
+    display: block;
 }
 
-
-ul, ol {
-    margin-left: 2rem;
-    margin-bottom: 1rem;
+/* Quiz Form Controls */
+.form-example {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-
-th, td {
-    border: 1px solid #ccc;
-    padding: 0.75rem;
-    text-align: left;
+input[type="text"] {
+    width: 100%; /* Full width on mobile */
+    padding: 10px;
+    margin: 10px 0;
 }
 
-th {
-    background-color: #3498db;
-    color: white;
+/* --- Media Queries --- */
+
+/* Mobile Devices (Widths up to 600px) */
+@media screen and (max-width: 600px) {
+    nav ul {
+        flex-direction: column; /* Stack menu vertically */
+        align-items: center;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #34495e;
+    }
+
+    .container {
+        margin: 1rem auto;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
 }
 
-/* Footer (Class Project Note) */
+/* Large Screens (Widths above 1200px) */
+@media screen and (min-width: 1201px) {
+    .container {
+        padding: 0 2rem;
+    }
+}
+
 footer {
-    background: #ecf0f1; /* Light Gray */
-    color: #7f8c8d; /* Gray text */
+    background: #ecf0f1;
+    color: #7f8c8d;
     text-align: center;
     padding: 1rem 0;
-    margin-top: auto; /* Pushes the footer to the bottom */
+    margin-top: auto;
     border-top: 1px solid #bdc3c7;
-    font-size: 0.85rem;
-}
-
-footer a {
-    color: #3498db;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
 }
